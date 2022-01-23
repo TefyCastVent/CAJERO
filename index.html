@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cajero de banco</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Balsamiq+Sans&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header>
+        <img class="imagen-banco"
+            src="https://images.vexels.com/media/users/3/200981/isolated/preview/2018a0dd73f0f6d68a0e9d2c8bbdb984-mano-con-icono-de-dinero.png" alt="">
+        <h1 class="nombre-banco">Banco de la Nación </h1>
+    </header>
+    <div id="cuentas-contenedor">
+        <div class="cuenta-hijo" id="cuenta-hijo-1" onclick="pasarPassword('cuenta-hijo-1')">
+            <h3 class="nombre-cuenta" id="cuenta-hijo-1-titular">Estéfany</h3>
+            <img class="cuenta-img" src=https://i.pinimg.com/564x/b7/3b/26/b73b2628a176edee5d159e3f05ed2c63.jpg alt="">
+        </div>
+        <div class="cuenta-hijo" id="cuenta-hijo-2" onclick="pasarPassword('cuenta-hijo-2')">
+            <h3 class="nombre-cuenta"  id="cuenta-hijo-2-titular">Juan</h3>
+            <img class="cuenta-img" src="https://i.pinimg.com/736x/59/8a/58/598a58965bf0d5811aff963d180ba128.jpg" alt="">
+        </div>
+        <div class="cuenta-hijo" id="cuenta-hijo-3" onclick="pasarPassword('cuenta-hijo-3')">
+            <h3 class="nombre-cuenta" id="cuenta-hijo-3-titular">Betty</h3>
+            <img class="cuenta-img" src="https://i.pinimg.com/originals/cf/91/2d/cf912dbe94f545c223bfde3cfdee03a9.png" alt="">
+        </div>
+    </div>
+    <div id="password" class="contenedor">
+        <form class="formulario" action="">
+            <label for="titular">Usuario: </label>
+            <input type="text" name=" " id="nombre-titular" value="">
+        <br>
+            <label for="contraseña">Contraseña: </label>
+            <input type="password" name=" " id="contraseña">
+        </form>
+        <button class="btn-opcion" onclick="evaluarContraseña()">Ingresar</button>
+        <!--  ...............................................  -->
+        <button class="btn-opcion" onclick="regresarCuentas()">Cambiar de cuenta</button>
+        <!--  ...............................................  -->
+    </div>
+    <div id="opciones-cuenta" class="contenedor">
+        <button class="btn-opcion" onclick="consultarSaldo()">Consultar saldo</button>
+        <button class="btn-opcion" onclick="pasarADepositar()">Ingresar monto</button>
+        <button class="btn-opcion" onclick="pasarARetirar()">Retirar monto</button>
+        <br>
+        <!--  ...............................................  -->
+        <button class="btn-opcion"onclick="regresarCuentas()">Salir</button>
+        <!--  ...............................................  -->
+    </div>
+    <div id="saldo-cuenta" class="contenedor">
+        <form action="">
+            <label for="saldo-cuenta-actual">Saldo actual: </label>
+            <input type="text" id="saldo-cuenta-actual" value="">
+        </form>
+        <!--  ...............................................  -->
+        <button class="btn-opcion" onclick="regresarCuentas()">Salir</button>
+        <!--  ...............................................  -->
+        <!--  +++++++++++++++++++++++++++++++++++++++++++++++ -->
+        <button class="btn-opcion" onclick="regresarOpcionesCuenta()">Otra operación</button>
+        <!--  +++++++++++++++++++++++++++++++++++++++++++++++ -->
+    </div>
+    <div id="ingresar-monto" class="contenedor">
+        <form action="">
+            <label for="monto">Monto a depositar: </label>
+            <input type="number" id="monto" value="">
+        </form>
+        <button  class="btn-opcion" onclick="ingresar()">Depositar</button>
+        <br>
+        <!--  +++++++++++++++++++++++++++++++++++++++++++++++ -->
+        <button class="btn-opcion" onclick="regresarOpcionesCuenta()">Otra operación</button>
+        <!--  +++++++++++++++++++++++++++++++++++++++++++++++ -->
+        <!--  ...............................................  -->
+        <button class="btn-opcion" onclick="regresarCuentas()">Salir</button>
+        <!--  ...............................................  -->
+    </div>
+    <div id="informacion-deposito" class="contenedor">
+        <form action="">
+            <label for="monto-depositado">Monto depositado: </label>
+            <input type="texto" id="monto-depositado" value="">
+            <br>
+            <label for="monto-actual">Saldo actual: </label>
+            <input type="texto" id="monto-actual" value="">
+        </form>
+        <!--  +++++++++++++++++++++++++++++++++++++++++++++++ -->
+        <button class="btn-opcion" onclick="regresarOpcionesCuenta()">Otra operación</button>
+        <!--  +++++++++++++++++++++++++++++++++++++++++++++++ -->
+        <!--  ...............................................  -->
+        <button class="btn-opcion" onclick="regresarCuentas()">Salir</button>
+        <!--  ...............................................  -->
+    </div>
+    <div id="retirar-monto" class="contenedor">
+        <form action="">
+            <label for="monto-retirar">Monto a retirar: </label>
+            <input type="number" id="monto-retirar" value="">
+        </form>
+        <button class="btn-opcion" onclick="retirar()">Retirar</button>
+        <br>
+        <!--  +++++++++++++++++++++++++++++++++++++++++++++++ -->
+        <button class="btn-opcion" onclick="regresarOpcionesCuenta()">Otra operación</button>
+        <!--  +++++++++++++++++++++++++++++++++++++++++++++++ -->
+        <!--  ...............................................  -->
+        <button class="btn-opcion" onclick="regresarCuentas()">Salir</button>
+        <!--  ...............................................  -->
+    </div>
+    <div id="informacion-retiro" class="contenedor">
+        <form action="">
+            <label for="monto-retirado">Monto retirado: </label>
+            <input type="texto" id="monto-retirado" value="">
+            <br>
+            <label for="monto-despues-retiro">Saldo actual: </label>
+            <input type="texto" id="monto-despues-retiro" value="">
+        </form>
+        <!--  +++++++++++++++++++++++++++++++++++++++++++++++ -->
+        <button class="btn-opcion" onclick="regresarOpcionesCuenta()">Otra operación</button>
+        <!--  +++++++++++++++++++++++++++++++++++++++++++++++ -->
+        <!--  ...............................................  -->
+        <button class="btn-opcion" onclick="regresarCuentas()">Salir</button>
+        <!--  ...............................................  -->
+    </div>
+
+    <script src="main.js"></script>
+</body>
+
+</html>
